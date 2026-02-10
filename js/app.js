@@ -37,38 +37,77 @@ function formatNumber(num) {
   return new Intl.NumberFormat().format(num);
 }
 
-// ============ NAVBAR ============
-(function initNavbar() {
-  const navbar = $('#navbar');
-  const navToggle = $('#navToggle');
-  const navLinks = $('#navLinks');
+// ============ NAVBAR & TAB SYSTEM ============
+const TabNav = (() => {
+  let mapInitialized = false;
 
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  function init() {
+    const navbar = $('#navbar');
+    const navToggle = $('#navToggle');
+    const navLinks = $('#navLinks');
 
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-
-  // Close mobile menu on link click
-  $$('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('show'));
-  });
-
-  // Active section highlight
-  const sections = $$('section[id]');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        $$('.nav-links a').forEach(a => a.classList.remove('active'));
-        const active = $(`.nav-links a[data-section="${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
+    // Scroll effect on navbar
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
-  }, { threshold: 0.3 });
 
-  sections.forEach(s => observer.observe(s));
+    // Mobile menu toggle
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Attach tab switching to ALL elements with data-tab (navbar, hero buttons, footer links)
+    document.addEventListener('click', (e) => {
+      const trigger = e.target.closest('[data-tab]');
+      if (!trigger) return;
+      e.preventDefault();
+      const tabId = trigger.getAttribute('data-tab');
+      switchTab(tabId);
+      // Close mobile menu
+      navLinks.classList.remove('show');
+    });
+
+    // Highlight "Home" on load
+    setActiveNavLink('hero');
+  }
+
+  function switchTab(tabId) {
+    // Hide all tab sections
+    $$('.tab-section').forEach(sec => sec.classList.remove('active-tab'));
+
+    // Show the target section
+    const target = document.getElementById(tabId);
+    if (target) {
+      target.classList.add('active-tab');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+
+    // Update active nav link
+    setActiveNavLink(tabId);
+
+    // Lazy-init the map the first time the Maps tab is opened
+    if (tabId === 'maps' && !mapInitialized) {
+      mapInitialized = true;
+      MapExplorer.init();
+    }
+
+    // Invalidate map size if already initialized (Leaflet needs this after display:none→block)
+    if (tabId === 'maps' && mapInitialized) {
+      setTimeout(() => {
+        if (window.MapExplorer && window.MapExplorer._map) {
+          window.MapExplorer._map.invalidateSize();
+        }
+      }, 100);
+    }
+  }
+
+  function setActiveNavLink(tabId) {
+    $$('.nav-links .nav-tab-link').forEach(a => a.classList.remove('active'));
+    const active = $(`.nav-links .nav-tab-link[data-tab="${tabId}"]`);
+    if (active) active.classList.add('active');
+  }
+
+  return { init, switchTab };
 })();
 
 // ============ TRIP PLANNER ============
@@ -1124,20 +1163,19 @@ const MapExplorer = (() => {
     `).join('');
   }
 
-  return { init, goToLocation, savePlace };
+  return { init, goToLocation, savePlace, get _map() { return map; } };
 })();
 
 window.MapExplorer = MapExplorer;
 
 // ============ INITIALIZE APP ============
 document.addEventListener('DOMContentLoaded', () => {
+  TabNav.init();
   TripPlanner.init();
   CountryExplorer.init();
   SafetyCenter.init();
   PackingList.init();
   CurrencyConverter.init();
   DocumentStore.init();
-
-  // Delay map init so DOM is ready and visible
-  setTimeout(() => MapExplorer.init(), 500);
+  // Map initializes lazily when the Maps tab is first opened
 });

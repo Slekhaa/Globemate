@@ -13,18 +13,19 @@
   <!-- ============ NAVBAR ============ -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo">
+      <a href="#" class="nav-logo" data-tab="hero">
         <i class="fas fa-globe-americas"></i>
         <span>GlobeMate</span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#trip-planner" data-section="trip-planner"><i class="fas fa-route"></i> Trip Planner</a></li>
-        <li><a href="#country-info" data-section="country-info"><i class="fas fa-flag"></i> Countries</a></li>
-        <li><a href="#safety" data-section="safety"><i class="fas fa-shield-alt"></i> Safety</a></li>
-        <li><a href="#packing" data-section="packing"><i class="fas fa-suitcase-rolling"></i> Packing</a></li>
-        <li><a href="#currency" data-section="currency"><i class="fas fa-coins"></i> Currency</a></li>
-        <li><a href="#documents" data-section="documents"><i class="fas fa-folder-open"></i> Documents</a></li>
-        <li><a href="#maps" data-section="maps"><i class="fas fa-map-marked-alt"></i> Maps</a></li>
+        <li><a href="#" data-tab="hero" class="nav-tab-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#" data-tab="trip-planner" class="nav-tab-link"><i class="fas fa-route"></i> Trip Planner</a></li>
+        <li><a href="#" data-tab="country-info" class="nav-tab-link"><i class="fas fa-flag"></i> Countries</a></li>
+        <li><a href="#" data-tab="safety" class="nav-tab-link"><i class="fas fa-shield-alt"></i> Safety</a></li>
+        <li><a href="#" data-tab="packing" class="nav-tab-link"><i class="fas fa-suitcase-rolling"></i> Packing</a></li>
+        <li><a href="#" data-tab="currency" class="nav-tab-link"><i class="fas fa-coins"></i> Currency</a></li>
+        <li><a href="#" data-tab="documents" class="nav-tab-link"><i class="fas fa-folder-open"></i> Documents</a></li>
+        <li><a href="#" data-tab="maps" class="nav-tab-link"><i class="fas fa-map-marked-alt"></i> Maps</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -33,7 +34,7 @@
   </nav>
 
   <!-- ============ HERO ============ -->
-  <section class="hero" id="hero">
+  <section class="hero tab-section active-tab" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
       <h1 class="hero-title">
@@ -55,17 +56,14 @@
         </div>
       </div>
       <div class="hero-actions">
-        <a href="#trip-planner" class="btn btn-primary btn-lg"><i class="fas fa-rocket"></i> Start Planning</a>
-        <a href="#country-info" class="btn btn-outline btn-lg"><i class="fas fa-search"></i> Explore Countries</a>
+        <a href="#" data-tab="trip-planner" class="btn btn-primary btn-lg nav-tab-link"><i class="fas fa-rocket"></i> Start Planning</a>
+        <a href="#" data-tab="country-info" class="btn btn-outline btn-lg nav-tab-link"><i class="fas fa-search"></i> Explore Countries</a>
       </div>
-    </div>
-    <div class="hero-scroll">
-      <i class="fas fa-chevron-down"></i>
     </div>
   </section>
 
   <!-- ============ TRIP PLANNER ============ -->
-  <section class="section" id="trip-planner">
+  <section class="section tab-section" id="trip-planner">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-route"></i> Trip Planner</span>
@@ -144,7 +142,7 @@
   </section>
 
   <!-- ============ COUNTRY INFO & VISA ============ -->
-  <section class="section section-alt" id="country-info">
+  <section class="section section-alt tab-section" id="country-info">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-flag"></i> Country Explorer</span>
@@ -248,7 +246,7 @@
   </section>
 
   <!-- ============ SAFETY INDEX ============ -->
-  <section class="section" id="safety">
+  <section class="section tab-section" id="safety">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-shield-alt"></i> Safety Center</span>
@@ -306,7 +304,7 @@
   </section>
 
   <!-- ============ PACKING CHECKLIST ============ -->
-  <section class="section section-alt" id="packing">
+  <section class="section section-alt tab-section" id="packing">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-suitcase-rolling"></i> Smart Packing</span>
@@ -372,7 +370,7 @@
   </section>
 
   <!-- ============ CURRENCY CONVERTER ============ -->
-  <section class="section" id="currency">
+  <section class="section tab-section" id="currency">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-coins"></i> Currency</span>
@@ -409,7 +407,7 @@
   </section>
 
   <!-- ============ DOCUMENT STORAGE ============ -->
-  <section class="section section-alt" id="documents">
+  <section class="section section-alt tab-section" id="documents">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-folder-open"></i> Documents</span>
@@ -503,7 +501,7 @@
   </section>
 
   <!-- ============ MAPS ============ -->
-  <section class="section" id="maps">
+  <section class="section tab-section" id="maps">
     <div class="container">
       <div class="section-header">
         <span class="section-badge"><i class="fas fa-map-marked-alt"></i> Maps</span>
@@ -547,16 +545,16 @@
         </div>
         <div class="footer-links">
           <h4>Quick Links</h4>
-          <a href="#trip-planner">Trip Planner</a>
-          <a href="#country-info">Countries</a>
-          <a href="#safety">Safety</a>
-          <a href="#currency">Currency</a>
+          <a href="#" data-tab="trip-planner" class="nav-tab-link">Trip Planner</a>
+          <a href="#" data-tab="country-info" class="nav-tab-link">Countries</a>
+          <a href="#" data-tab="safety" class="nav-tab-link">Safety</a>
+          <a href="#" data-tab="currency" class="nav-tab-link">Currency</a>
         </div>
         <div class="footer-links">
           <h4>Tools</h4>
-          <a href="#packing">Packing List</a>
-          <a href="#documents">Documents</a>
-          <a href="#maps">Maps</a>
+          <a href="#" data-tab="packing" class="nav-tab-link">Packing List</a>
+          <a href="#" data-tab="documents" class="nav-tab-link">Documents</a>
+          <a href="#" data-tab="maps" class="nav-tab-link">Maps</a>
         </div>
       </div>
       <div class="footer-bottom">
