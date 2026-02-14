@@ -20,6 +20,17 @@
       
       // Load home page by default
       this.loadPage('home');
+      
+      // Initial navbar state check
+      setTimeout(() => {
+        const navbar = document.getElementById('navbar');
+        if (navbar && document.body.classList.contains('hero-page')) {
+          navbar.classList.remove('scrolled');
+          navbar.style.background = 'transparent';
+          navbar.style.boxShadow = 'none';
+          console.log('🚀 Initial navbar setup: transparent for hero page');
+        }
+      }, 400);
     },
 
     setupNavigation() {
@@ -84,6 +95,29 @@
           this.contentContainer.style.opacity = '1';
           
           this.currentPage = pageId;
+          
+          // Update body class for hero-style pages
+          document.body.className = ''; // Clear previous classes
+          const navbar = document.getElementById('navbar');
+          if (['home', 'trip-planner', 'country-info', 'safety'].includes(pageId)) {
+            document.body.classList.add('hero-page');
+            console.log(`✅ Added hero-page class for: ${pageId}`);
+            // Remove scrolled class immediately on hero pages
+            if (navbar) {
+              navbar.classList.remove('scrolled');
+              navbar.style.background = 'transparent';
+              navbar.style.boxShadow = 'none';
+              console.log('✅ Removed scrolled class and set transparent background');
+            }
+          } else {
+            console.log(`ℹ️ Not a hero page: ${pageId}`);
+            if (navbar) {
+              navbar.style.background = '';
+              navbar.style.boxShadow = '';
+            }
+          }
+          console.log('Body classes:', document.body.className);
+          console.log('Navbar classes:', navbar ? navbar.className : 'navbar not found');
           
           // Initialize module after DOM is fully ready
           setTimeout(() => {

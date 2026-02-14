@@ -118,7 +118,18 @@ function initNavbar() {
 
   // Scroll effect on navbar
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    // Don't change navbar on hero-style pages
+    const isHeroPage = document.body.classList.contains('hero-page');
+    if (isHeroPage) {
+      navbar.classList.remove('scrolled');
+      navbar.style.background = 'transparent';
+      navbar.style.boxShadow = 'none';
+      console.log('🔒 Keeping navbar transparent (hero page)');
+    } else {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      navbar.style.background = '';
+      navbar.style.boxShadow = '';
+    }
   });
 
   // Mobile menu toggle
