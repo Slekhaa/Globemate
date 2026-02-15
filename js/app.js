@@ -48,6 +48,156 @@ function formatNumber(num) {
   return new Intl.NumberFormat().format(num);
 }
 
+// Debounce function for search inputs
+function debounce(func, wait = 300) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Throttle function for scroll events
+function throttle(func, limit = 100) {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  };
+}
+
+// Copy to clipboard
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast('Copied to clipboard!', 'success');
+    return true;
+  } catch (err) {
+    console.error('Copy failed:', err);
+    showToast('Failed to copy', 'error');
+    return false;
+  }
+}
+
+// Form validation helpers
+const FormValidation = {
+  isEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  },
+
+  isPhoneNumber(phone) {
+    const re = /^[\d\s\-\+\(\)]+$/;
+    return phone.length >= 10 && re.test(phone);
+  },
+
+  isStrongPassword(password) {
+    // At least 8 chars, 1 uppercase, 1 lowercase, 1 number
+    return password.length >= 8 &&
+           /[A-Z]/.test(password) &&
+           /[a-z]/.test(password) &&
+           /[0-9]/.test(password);
+  },
+
+  isEmpty(value) {
+    return !value || value.trim() === '';
+  },
+
+  showFieldError(input, message) {
+    input.classList.add('error');
+    let errorEl = input.parentElement.querySelector('.field-error');
+    if (!errorEl) {
+      errorEl = document.createElement('span');
+      errorEl.className = 'field-error';
+      input.parentElement.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+  },
+
+  clearFieldError(input) {
+    input.classList.remove('error');
+    const errorEl = input.parentElement.querySelector('.field-error');
+    if (errorEl) errorEl.remove();
+  }
+};
+
+// API fetch wrapper with error handling
+async function fetchAPI(url, options = {}) {
+  try {
+    const response = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+      },
+      ...options
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error('API fetch error:', error);
+    showToast(`Failed to fetch data: ${error.message}`, 'error');
+    throw error;
+  }
+}
+
+// Random ID generator
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
+
+// Slugify string (for URLs)
+function slugify(text) {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+}
+
+// Truncate text with ellipsis
+function truncate(text, maxLength = 100) {
+  if (text.length <= maxLength) return text;
+  return text.substr(0, maxLength) + '...';
+}
+
+// Get query parameter from URL
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+// Set document title
+function setPageTitle(title) {
+  document.title = `${title} — GlobeMate`;
+}
+
+// Check if mobile device
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+// Scroll to element
+function scrollToElement(selector, offset = 0) {
+  const element = $(selector);
+  if (!element) return;
+
+  const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
+
 // Expose utilities globally
 window.AppUtils = {
   $,
@@ -56,7 +206,19 @@ window.AppUtils = {
   saveToLocal,
   loadFromLocal,
   formatDate,
-  formatNumber
+  formatNumber,
+  debounce,
+  throttle,
+  copyToClipboard,
+  FormValidation,
+  fetchAPI,
+  generateId,
+  slugify,
+  truncate,
+  getQueryParam,
+  setPageTitle,
+  isMobile,
+  scrollToElement
 };
 
 // Also expose individual functions for modules
@@ -67,6 +229,12 @@ window.saveToLocal = saveToLocal;
 window.loadFromLocal = loadFromLocal;
 window.formatDate = formatDate;
 window.formatNumber = formatNumber;
+window.debounce = debounce;
+window.throttle = throttle;
+window.copyToClipboard = copyToClipboard;
+window.FormValidation = FormValidation;
+window.fetchAPI = fetchAPI;
+window.generateId = generateId;
 
 // ============ SPLASH SCREEN ============
 class SplashScreen {
