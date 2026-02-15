@@ -1,0 +1,71 @@
+<section class="auth-section tab-section active-tab" id="login">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h2 class="auth-title">
+          <i class="fas fa-globe-americas"></i> Welcome Back
+        </h2>
+        <p class="auth-subtitle">Log in to continue your journey</p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginFormElement" class="auth-form">
+        <div class="form-group">
+          <label for="loginEmail">
+            <i class="fas fa-envelope"></i> Email Address
+          </label>
+          <input
+            type="email"
+            id="loginEmail"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">
+            <i class="fas fa-lock"></i> Password
+          </label>
+          <input
+            type="password"
+            id="loginPassword"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMe" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-password">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          <i class="fas fa-sign-in-alt"></i> Log In
+        </button>
+
+        <div class="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button type="button" class="btn btn-outline btn-block" id="googleLoginBtn">
+          <i class="fab fa-google"></i> Continue with Google
+        </button>
+      </form>
+
+      <!-- Footer Links -->
+      <div class="auth-footer">
+        <p class="auth-switch-text">Don't have an account? 
+          <a href="#" data-tab="register" class="nav-tab-link auth-switch-link">Register</a>
+        </p>
+        <a href="#" data-tab="home" class="return-home-link nav-tab-link">
+          <i class="fas fa-arrow-left"></i> Return to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

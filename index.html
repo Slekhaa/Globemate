@@ -87,6 +87,14 @@
 
   <!-- Core Libraries -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <!-- Supabase Configuration -->
+  <script>
+    // TODO: Replace these with your actual Supabase credentials
+    window.SUPABASE_URL = 'https://zucibmuisijwpgcfnkds.supabase.co';
+    window.SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1Y2libXVpc2lqd3BnY2Zua2RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzExMTM4MTIsImV4cCI6MjA4NjY4OTgxMn0.qlkuUthCeExkudOBBM-ntdrB1Aod-ZPJJfAp-oGoma4';
+  </script>
   
   <!-- Core App (utilities must load first) -->
   <script src="js/app.js"></script>
@@ -96,6 +104,9 @@
   
   <!-- Page Modules (load after PageLoader) -->
   <script src="js/home.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/register.js"></script>
+  <script src="js/login.js"></script>
   <script src="js/trip-planner.js"></script>
   <script src="js/country-info.js"></script>
   <script src="js/safety.js"></script>
