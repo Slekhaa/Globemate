@@ -42,6 +42,7 @@ const Auth = (() => {
         applyLoggedInUI();
         return session.user;
       }
+      restoreLoggedOutUI();
       return null;
     } catch (e) {
       console.error('Session check error:', e);
@@ -130,10 +131,16 @@ const Auth = (() => {
     const userName = currentUser.user_metadata?.full_name || currentUser.email?.split('@')[0] || 'User';
 
     // Replace GlobeMate logo text with user name
-    const navLogo = document.querySelector('.nav-logo span');
-    if (navLogo) {
-      navLogo.textContent = userName;
-      navLogo.style.fontWeight = '600';
+    const navLogoText = document.querySelector('.nav-logo .logo-text');
+    const navLogoLink = document.querySelector('.nav-logo');
+    if (navLogoText) {
+      navLogoText.innerHTML = userName;
+      navLogoText.style.fontWeight = '600';
+      navLogoText.style.color = '#ffffff';
+    }
+    if (navLogoLink) {
+      navLogoLink.dataset.authLocked = 'true';
+      navLogoLink.addEventListener('click', preventNavLogoClick, true);
     }
 
     // Hide Home nav item
@@ -141,6 +148,10 @@ const Auth = (() => {
     if (homeLink && homeLink.parentElement) {
       homeLink.parentElement.style.display = 'none';
     }
+
+    setNavItemVisibility('trip-planner', true);
+    setNavItemVisibility('packing', true);
+    setNavItemVisibility('documents', true);
 
     // Add Logout nav item
     const navLinks = document.getElementById('navLinks');
@@ -160,14 +171,27 @@ const Auth = (() => {
 
   function restoreLoggedOutUI() {
     // Restore logo
-    const navLogo = document.querySelector('.nav-logo span');
-    if (navLogo) navLogo.textContent = 'GlobeMate';
+    const navLogoText = document.querySelector('.nav-logo .logo-text');
+    const navLogoLink = document.querySelector('.nav-logo');
+    if (navLogoText) {
+      navLogoText.innerHTML = '<span class="letter-g">G</span><span class="letter-l">l</span><span class="letter-o">o</span><span class="letter-b">b</span><span class="letter-e1">e</span><span class="letter-m">M</span><span class="letter-a">a</span><span class="letter-t">t</span><span class="letter-e2">e</span>';
+      navLogoText.style.fontWeight = '';
+      navLogoText.style.color = '';
+    }
+    if (navLogoLink) {
+      delete navLogoLink.dataset.authLocked;
+      navLogoLink.removeEventListener('click', preventNavLogoClick, true);
+    }
 
     // Show Home nav item
     const homeLink = document.querySelector('#navLinks a[data-tab="home"]');
     if (homeLink && homeLink.parentElement) {
       homeLink.parentElement.style.display = '';
     }
+
+    setNavItemVisibility('trip-planner', false);
+    setNavItemVisibility('packing', false);
+    setNavItemVisibility('documents', false);
 
     // Remove logout item
     const logoutLi = document.getElementById('logoutNavItem');
@@ -177,6 +201,21 @@ const Auth = (() => {
   function getUserName() {
     if (!currentUser) return null;
     return currentUser.user_metadata?.full_name || currentUser.email?.split('@')[0] || 'User';
+  }
+
+  function preventNavLogoClick(event) {
+    const link = event.currentTarget;
+    if (link && link.dataset.authLocked === 'true') {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
+
+  function setNavItemVisibility(tabId, isVisible) {
+    const link = document.querySelector(`#navLinks a[data-tab="${tabId}"]`);
+    if (link && link.parentElement) {
+      link.parentElement.style.display = isVisible ? '' : 'none';
+    }
   }
 
   return {

@@ -352,6 +352,12 @@ body.hero-page::after {
   transition: var(--transition);
 }
 
+.navbar.nav-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
 .navbar.scrolled {
   background: transparent;
   box-shadow: none;
@@ -383,8 +389,10 @@ body.hero-page .navbar.scrolled {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 400;
+  font-family: 'Dancing Script', 'Great Vibes', 'Pacifico', cursive;
+  letter-spacing: 1px;
   color: #f8fafc;
   text-decoration: none;
   text-shadow: 0 2px 8px rgba(15, 23, 42, 0.6);
@@ -393,27 +401,45 @@ body.hero-page .navbar.scrolled {
 
 /* Larger black text on hero pages */
 body.hero-page .nav-logo {
-  font-size: 1.75rem;
+  font-size: 3rem;
   color: #111827;
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 1px 8px rgba(255, 255, 255, 0.5);
 }
 
 .nav-logo i {
-  font-size: 1.6rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 3.2rem;
+  color: #666666;
+  filter: grayscale(100%);
 }
 
 body.hero-page .nav-logo i {
-  font-size: 1.85rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8));
+  font-size: 3.2rem;
+  color: #333333;
+  filter: grayscale(100%) drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8));
 }
+
+.nav-logo .logo-text {
+  display: inline;
+}
+
+.nav-logo .logo-text span {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+body.hero-page .nav-logo .logo-text span {
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5), 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Letter colors for GlobeMate - Globe in blue, Mate in red */
+.nav-logo .letter-g { color: #3b82f6; }
+.nav-logo .letter-l { color: #3b82f6; }
+.nav-logo .letter-o { color: #3b82f6; }
+.nav-logo .letter-b { color: #3b82f6; }
+.nav-logo .letter-e1 { color: #3b82f6; }
+.nav-logo .letter-m { color: #ef4444; }
+.nav-logo .letter-a { color: #ef4444; }
+.nav-logo .letter-t { color: #ef4444; }
+.nav-logo .letter-e2 { color: #ef4444; }
 
 .nav-links {
   display: flex;
@@ -426,7 +452,7 @@ body.hero-page .nav-logo i {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #e2e8f0;
   text-decoration: none;
@@ -436,10 +462,37 @@ body.hero-page .nav-logo i {
 }
 
 body.hero-page .nav-links a {
-  font-size: 0.95rem;
   color: #111827;
   font-weight: 800;
   text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 1px 8px rgba(255, 255, 255, 0.5);
+}
+
+body.page-maps .nav-logo,
+body.page-maps .nav-links a,
+body.page-maps .nav-toggle {
+  color: #111827;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+body.page-documents .nav-logo,
+body.page-documents .nav-links a,
+body.page-documents .nav-toggle {
+  color: #f8fafc;
+  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.7);
+}
+
+body.page-packing .nav-logo,
+body.page-packing .nav-links a,
+body.page-packing .nav-toggle {
+  color: #0f172a;
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.7);
+}
+
+body.page-currency .nav-logo,
+body.page-currency .nav-links a,
+body.page-currency .nav-toggle {
+  color: #f8fafc;
+  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.7);
 }
 
 .nav-links a:hover,
@@ -508,6 +561,96 @@ body.hero-page .nav-toggle {
   inset: 0;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.35), rgba(59, 130, 246, 0.3), rgba(236, 72, 153, 0.25));
   backdrop-filter: blur(0px);
+}
+
+#home .hero-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#home .hero-orb {
+  position: absolute;
+  width: 38vmax;
+  height: 38vmax;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  animation: float-orb 14s ease-in-out infinite;
+}
+
+#home .orb-1 {
+  top: -10vmax;
+  left: -8vmax;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.85), rgba(59, 130, 246, 0));
+}
+
+#home .orb-2 {
+  bottom: -12vmax;
+  right: -10vmax;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0));
+  animation-delay: -4s;
+}
+
+#home .orb-3 {
+  top: 20vmax;
+  right: 18vmax;
+  width: 28vmax;
+  height: 28vmax;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.75), rgba(6, 182, 212, 0));
+  animation-delay: -8s;
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4vmax, -3vmax, 0) scale(1.05); }
+}
+
+#home .hero-shooting-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#home .shooting-star {
+  position: absolute;
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transform: translate3d(0, 0, 0) rotate(-20deg);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  animation: shooting-star 6s linear infinite;
+}
+
+#home .shooting-star::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+#home .star-1 { top: 12%; left: -20%; animation-delay: 0s; }
+#home .star-2 { top: 28%; left: -30%; animation-delay: 1.5s; }
+#home .star-3 { top: 45%; left: -25%; animation-delay: 3s; }
+#home .star-4 { top: 65%; left: -35%; animation-delay: 4.5s; }
+
+@keyframes shooting-star {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(-20deg); }
+  10% { opacity: 0.9; }
+  30% { opacity: 0; transform: translate3d(120vw, 40vh, 0) rotate(-20deg); }
+  100% { opacity: 0; transform: translate3d(120vw, 40vh, 0) rotate(-20deg); }
 }
 
 .hero-content {

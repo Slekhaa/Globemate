@@ -27,8 +27,12 @@ const MapExplorer = (() => {
       map = L.map('map').setView([20, 0], 2);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19
+        maxZoom: 19,
+        noWrap: true,
+        bounds: [[-85, -180], [85, 180]]
       }).addTo(map);
+      map.setMaxBounds([[-85, -180], [85, 180]]);
+      map.options.maxBoundsViscosity = 1.0;
 
       // Map click to add marker with location details
       map.on('click', async (e) => {

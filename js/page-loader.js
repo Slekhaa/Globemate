@@ -98,6 +98,7 @@
           
           // Update body class for hero-style pages
           document.body.className = ''; // Clear previous classes
+          document.body.classList.add(`page-${pageId}`);
           const navbar = document.getElementById('navbar');
           if (['home', 'trip-planner', 'country-info', 'safety'].includes(pageId)) {
             document.body.classList.add('hero-page');

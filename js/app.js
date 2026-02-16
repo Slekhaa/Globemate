@@ -284,21 +284,37 @@ function initNavbar() {
 
   if (!navbar) return;
 
-  // Scroll effect on navbar
-  window.addEventListener('scroll', () => {
-    // Don't change navbar on hero-style pages
+  let lastScrollY = 0;
+  const handleScroll = (event) => {
+    const target = event && event.target instanceof Element ? event.target : null;
+    const isPageSection = target && target.classList.contains('section') && target.classList.contains('tab-section');
+    const currentScrollY = isPageSection ? target.scrollTop : window.scrollY;
     const isHeroPage = document.body.classList.contains('hero-page');
+    const isMenuOpen = navLinks && navLinks.classList.contains('show');
+
     if (isHeroPage) {
       navbar.classList.remove('scrolled');
       navbar.style.background = 'transparent';
       navbar.style.boxShadow = 'none';
       console.log('🔒 Keeping navbar transparent (hero page)');
     } else {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      navbar.classList.toggle('scrolled', currentScrollY > 50);
       navbar.style.background = '';
       navbar.style.boxShadow = '';
     }
-  });
+
+    if (!isMenuOpen && currentScrollY > 80 && currentScrollY > lastScrollY) {
+      navbar.classList.add('nav-hidden');
+    } else {
+      navbar.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+  };
+
+  // Scroll effect on navbar
+  window.addEventListener('scroll', throttle(handleScroll, 100));
+  document.addEventListener('scroll', throttle(handleScroll, 100), true);
 
   // Mobile menu toggle
   if (navToggle && navLinks) {
