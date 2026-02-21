@@ -1088,7 +1088,8 @@ body.hero-page .nav-toggle {
 #trip-planner .info-card,
 #country-info .info-card,
 #safety .emergency-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: #000 !important;
+  color: #fff !important;
   backdrop-filter: blur(10px);
 }
 

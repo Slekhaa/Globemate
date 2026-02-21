@@ -516,14 +516,14 @@
         'IND': [
           { name: 'Taj Mahal', wiki: 'Taj_Mahal', description: 'White marble mausoleum, symbol of eternal love', type: 'Monument', icon: 'landmark', image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop', lat: 27.1751, lng: 78.0421 },
           { name: 'Red Fort', wiki: 'Red_Fort', description: 'Historic Mughal-era fortified palace in Delhi', type: 'Fort', icon: 'fort-awesome', image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=400&h=300&fit=crop', lat: 28.6562, lng: 77.2410 },
-          { name: 'Jaipur City Palace', wiki: 'City_Palace,_Jaipur', description: 'Royal residence blending Rajput and Mughal architecture', type: 'Palace', icon: 'crown', image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=400&h=300&fit=crop', lat: 26.9260, lng: 75.8235 },
-          { name: 'Varanasi Ghats', wiki: 'Ghats_in_Varanasi', description: 'Sacred riverside steps along the Ganges', type: 'Religious Site', icon: 'place-of-worship', image: 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=400&h=300&fit=crop', lat: 25.3176, lng: 83.0104 }
+          { name: 'Jaipur City Palace', wiki: 'City_Palace,_Jaipur', description: 'Royal residence blending Rajput and Mughal architecture', type: 'Palace', icon: 'crown', image: 'https://media-cdn.tripadvisor.com/media/photo-s/10/cb/09/72/city-palace-of-jaipur.jpg', lat: 26.9260, lng: 75.8235 },
+          { name: 'Varanasi Ghats', wiki: 'Ghats_in_Varanasi', description: 'Sacred riverside steps along the Ganges', type: 'Religious Site', icon: 'place-of-worship', image: 'https://varanasismartcity.gov.in//assets/images/images/DashashwamedhGhat.jpg', lat: 25.3176, lng: 83.0104 }
         ],
         'AUS': [
           { name: 'Sydney Opera House', wiki: 'Sydney_Opera_House', description: 'Iconic performing arts center with unique sail design', type: 'Landmark', icon: 'landmark', image: 'https://images.unsplash.com/photo-1523059623039-a9ed027e7fad?w=400&h=300&fit=crop', lat: -33.8568, lng: 151.2153 },
           { name: 'Great Barrier Reef', wiki: 'Great_Barrier_Reef', description: 'World\'s largest coral reef system', type: 'Nature', icon: 'water', image: 'https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=400&h=300&fit=crop', lat: -18.2871, lng: 147.6992 },
           { name: 'Uluru', wiki: 'Uluru', description: 'Sacred sandstone monolith in the heart of Australia', type: 'Nature', icon: 'mountain', image: 'https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=400&h=300&fit=crop', lat: -25.3444, lng: 131.0369 },
-          { name: 'Twelve Apostles', wiki: 'The_Twelve_Apostles_(Victoria)', description: 'Limestone stacks off the coast of Victoria', type: 'Nature', icon: 'water', image: 'https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=400&h=300&fit=crop', lat: -38.6655, lng: 143.1049 }
+          { name: 'Twelve Apostles', wiki: 'The_Twelve_Apostles_(Victoria)', description: 'Limestone stacks off the coast of Victoria', type: 'Nature', icon: 'water', image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/The_Twelve_Apostles_2011.jpg', lat: -38.6655, lng: 143.1049 }
         ],
         'BRA': [
           { name: 'Christ the Redeemer', wiki: 'Christ_the_Redeemer_(statue)', description: 'Iconic Art Deco statue overlooking Rio de Janeiro', type: 'Monument', icon: 'monument', image: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=400&h=300&fit=crop', lat: -22.9519, lng: -43.2105 },
