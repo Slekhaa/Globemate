@@ -130,6 +130,12 @@ const Auth = (() => {
     if (!currentUser) return;
     const userName = currentUser.user_metadata?.full_name || currentUser.email?.split('@')[0] || 'User';
 
+    // Show nav links and mobile toggle
+    const navLinksEl = document.getElementById('navLinks');
+    const navToggleEl = document.getElementById('navToggle');
+    if (navLinksEl) navLinksEl.style.display = 'flex';
+    if (navToggleEl) navToggleEl.style.display = '';
+
     // Replace GlobeMate logo text with user name
     const navLogoText = document.querySelector('.nav-logo .logo-text');
     const navLogoLink = document.querySelector('.nav-logo');
@@ -172,6 +178,12 @@ const Auth = (() => {
   }
 
   function restoreLoggedOutUI() {
+    // Hide nav links and mobile toggle
+    const navLinksEl = document.getElementById('navLinks');
+    const navToggleEl = document.getElementById('navToggle');
+    if (navLinksEl) navLinksEl.style.display = 'none';
+    if (navToggleEl) navToggleEl.style.display = 'none';
+
     // Restore logo
     const navLogoText = document.querySelector('.nav-logo .logo-text');
     const navLogoLink = document.querySelector('.nav-logo');

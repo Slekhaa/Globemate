@@ -1054,6 +1054,19 @@ body.hero-page .btn-outline:hover {
   color: #111827;
 }
 
+/* Search bar inputs must never show their own border */
+.search-bar input,
+#country-info .search-bar input,
+#safety .search-bar input {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0 !important;
+}
+
 #country-info .country-header-card {
   background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
 }
@@ -1077,7 +1090,7 @@ body.hero-page .btn-outline:hover {
 #country-info .search-bar {
   background: #ffffff;
   backdrop-filter: none;
-  border: 1px solid #d1d5db;
+  border: 1.5px solid #e2e8f0;
 }
 
 #country-info .suggestions-dropdown {
@@ -1322,33 +1335,14 @@ body.hero-page .btn-outline:hover {
   padding: 16px 24px;
   background: white;
   border-radius: 50px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  border: 2px solid transparent;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  border: 1.5px solid #e2e8f0;
   transition: all 0.3s ease;
-  background-clip: padding-box;
-}
-
-.search-bar::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  padding: 2px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.search-bar:focus-within::before {
-  opacity: 1;
 }
 
 .search-bar:focus-within {
-  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.25);
+  border-color: #667eea;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.20);
   transform: translateY(-2px);
 }
 
@@ -6638,3 +6632,583 @@ select:focus-visible, textarea:focus-visible {
 
 #trip-planner .section-header { display: none; }
 #trip-planner .section-badge { display: none; }
+
+/* ============================================
+   RICH PAGE DESIGN OVERHAUL
+   ============================================ */
+
+/* ---- Per-section gradient backgrounds ---- */
+#content-container #country-info {
+  background: linear-gradient(170deg, #e8f0fe 0%, #eef2ff 180px, #f8faff 360px, #ffffff 540px) !important;
+}
+#content-container #safety {
+  background: linear-gradient(170deg, #fff1f2 0%, #fff5f0 180px, #fff9f8 360px, #ffffff 540px) !important;
+}
+#content-container #currency {
+  background: linear-gradient(170deg, #ecfdf5 0%, #f0fdf9 180px, #f7fdfb 360px, #ffffff 540px) !important;
+}
+#content-container #packing {
+  background: linear-gradient(170deg, #f5f3ff 0%, #f8f5ff 180px, #faf9ff 360px, #ffffff 540px) !important;
+}
+#content-container #documents {
+  background: linear-gradient(170deg, #ecfeff 0%, #f0fdff 180px, #f6feff 360px, #ffffff 540px) !important;
+}
+#content-container #maps {
+  background: linear-gradient(170deg, #f0f4ff 0%, #eef2ff 180px, #f6f8ff 360px, #ffffff 540px) !important;
+}
+
+/* ---- Section badge — vivid pills per section ---- */
+#country-info .section-badge {
+  background: linear-gradient(135deg, #3b82f6, #6366f1) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+  padding: 8px 22px !important;
+  font-size: 0.88rem !important;
+  border-radius: 30px !important;
+}
+#safety .section-badge {
+  background: linear-gradient(135deg, #ef4444, #f97316) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(239,68,68,0.35);
+  padding: 8px 22px !important;
+  border-radius: 30px !important;
+}
+#currency .section-badge {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(16,185,129,0.35);
+  padding: 8px 22px !important;
+  border-radius: 30px !important;
+}
+#packing .section-badge {
+  background: linear-gradient(135deg, #8b5cf6, #a855f7) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(139,92,246,0.35);
+  padding: 8px 22px !important;
+  border-radius: 30px !important;
+}
+#documents .section-badge {
+  background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(6,182,212,0.35);
+  padding: 8px 22px !important;
+  border-radius: 30px !important;
+}
+#maps .section-badge {
+  background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.35);
+  padding: 8px 22px !important;
+  border-radius: 30px !important;
+}
+
+/* ---- Section title — gradient text per section ---- */
+#country-info .section-title {
+  background: linear-gradient(135deg, #1e40af, #6366f1) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+#safety .section-title {
+  background: linear-gradient(135deg, #b91c1c, #f97316) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+#currency .section-title {
+  background: linear-gradient(135deg, #065f46, #10b981) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+#packing .section-title {
+  background: linear-gradient(135deg, #4c1d95, #8b5cf6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+#documents .section-title {
+  background: linear-gradient(135deg, #0e7490, #06b6d4) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+#maps .section-title {
+  background: linear-gradient(135deg, #1e40af, #6366f1) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* ---- Section title larger & bolder ---- */
+#country-info .section-title,
+#safety .section-title,
+#currency .section-title,
+#packing .section-title,
+#documents .section-title,
+#maps .section-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem) !important;
+  margin-bottom: 14px !important;
+  letter-spacing: -0.5px;
+}
+
+/* ---- Section desc larger ---- */
+#country-info .section-desc,
+#safety .section-desc,
+#currency .section-desc,
+#packing .section-desc,
+#documents .section-desc,
+#maps .section-desc {
+  font-size: 1.1rem !important;
+  color: #4b5563 !important;
+}
+
+/* ---- Decorative horizontal rule after section header ---- */
+#country-info .section-header::after,
+#safety .section-header::after,
+#currency .section-header::after,
+#packing .section-header::after,
+#documents .section-header::after,
+#maps .section-header::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  margin: 20px auto 0;
+}
+#country-info .section-header::after { background: linear-gradient(90deg,#3b82f6,#6366f1); }
+#safety .section-header::after        { background: linear-gradient(90deg,#ef4444,#f97316); }
+#currency .section-header::after      { background: linear-gradient(90deg,#10b981,#059669); }
+#packing .section-header::after       { background: linear-gradient(90deg,#8b5cf6,#a855f7); }
+#documents .section-header::after     { background: linear-gradient(90deg,#06b6d4,#0891b2); }
+#maps .section-header::after          { background: linear-gradient(90deg,#6366f1,#4f46e5); }
+
+/* ---- Cards — per-section accent top border always on ---- */
+/* Country-info: only the Fix Country card gets the always-visible bar */
+#country-info .plan-trip-cta.card::before { background: linear-gradient(90deg,#3b82f6,#6366f1); transform: scaleX(1) !important; }
+/* Suppress the bar (even on hover) for the other country-info cards */
+#country-info .places-card::before,
+#country-info .history-card::before,
+#country-info .visa-checker.card::before { display: none !important; transform: scaleX(0) !important; }
+#safety .card::before        { background: linear-gradient(90deg,#ef4444,#f97316); transform: scaleX(1) !important; }
+#currency .card::before      { background: linear-gradient(90deg,#10b981,#06b6d4); transform: scaleX(1) !important; }
+#packing .card::before       { background: linear-gradient(90deg,#8b5cf6,#a855f7); transform: scaleX(1) !important; }
+#documents .card::before     { background: linear-gradient(90deg,#06b6d4,#0891b2); transform: scaleX(1) !important; }
+#maps .card::before          { background: linear-gradient(90deg,#6366f1,#4f46e5); transform: scaleX(1) !important; }
+
+/* ---- Cards — richer shadows & subtle bg ---- */
+#country-info .card,
+#safety .card,
+#currency .card,
+#packing .card,
+#documents .card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.07) !important;
+  border-color: #e5e7eb !important;
+  border-radius: 18px !important;
+}
+#country-info .card:hover,
+#safety .card:hover,
+#currency .card:hover,
+#packing .card:hover,
+#documents .card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10), 0 16px 40px rgba(0,0,0,0.10) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* ---- Card titles — colored icons per section ---- */
+#country-info .card-title i  { color: #3b82f6 !important; }
+#safety .card-title i         { color: #ef4444 !important; }
+#currency .card-title i       { color: #10b981 !important; }
+#packing .card-title i        { color: #8b5cf6 !important; }
+#documents .card-title i      { color: #06b6d4 !important; }
+#maps .card-title i           { color: #6366f1 !important; }
+
+/* ---- Primary buttons — per-section colors ---- */
+#safety .btn-primary {
+  background: linear-gradient(135deg, #ef4444, #f97316) !important;
+  border-color: #ef4444 !important;
+}
+#safety .btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(239,68,68,0.4) !important;
+}
+#currency .btn-primary {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  border-color: #10b981 !important;
+}
+#packing .btn-primary {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+  border-color: #8b5cf6 !important;
+}
+#documents .btn-primary {
+  background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
+  border-color: #06b6d4 !important;
+}
+
+/* ---- Safety search bar pill ---- */
+#safety .search-bar {
+  border-color: #fecaca !important;
+}
+#safety .search-bar:focus-within {
+  border-color: #ef4444 !important;
+  box-shadow: 0 8px 32px rgba(239,68,68,0.18) !important;
+}
+#safety .search-bar > i { color: #ef4444 !important; }
+
+/* ---- Country-info search bar ---- */
+#country-info .search-bar > i { color: #3b82f6 !important; }
+
+/* ---- Currency converter card special layout ---- */
+#currency .currency-converter {
+  background: linear-gradient(145deg,#f0fdf4,#ecfdf5) !important;
+  border-color: #bbf7d0 !important;
+}
+
+/* ---- Packing config card ---- */
+#packing .packing-config {
+  background: linear-gradient(145deg,#faf5ff,#f5f3ff) !important;
+  border-color: #ddd6fe !important;
+}
+
+/* ---- Documents upload card ---- */
+#documents .doc-upload-card {
+  background: linear-gradient(145deg,#f0fdff,#ecfeff) !important;
+  border-color: #a5f3fc !important;
+}
+
+/* ---- Empty state icon colors per section ---- */
+#country-info .empty-state i { color: #93c5fd !important; }
+#safety .empty-state i        { color: #fca5a5 !important; }
+#currency .empty-state i      { color: #6ee7b7 !important; }
+#packing .empty-state i       { color: #c4b5fd !important; }
+#documents .empty-state i     { color: #67e8f9 !important; }
+#maps .empty-state i          { color: #a5b4fc !important; }
+
+/* ============================================================
+   MOBILE OVERHAUL — phones ≤ 768px
+   All rules here are additions/overrides; desktop untouched.
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* ---- General section spacing ---- */
+  #country-info,
+  #safety,
+  #currency,
+  #packing,
+  #documents,
+  #maps {
+    padding-top: 20px !important;
+  }
+
+  .section-header {
+    margin-bottom: 28px !important;
+    padding: 0 4px;
+  }
+
+  .section-header::after {
+    margin-top: 14px !important;
+  }
+
+  /* ---- Keep pill search bar as a row on mobile ---- */
+  #country-info .search-bar {
+    flex-direction: row !important;
+    align-items: center !important;
+    padding: 12px 18px !important;
+    border-radius: 50px !important;
+    gap: 10px !important;
+  }
+
+  #country-info .search-bar input {
+    font-size: 0.9rem !important;
+    width: 100% !important;
+  }
+
+  .search-bar-wrapper {
+    margin-bottom: 24px !important;
+    padding: 0 4px;
+  }
+
+  /* ---- Safety search ---- */
+  #safety .search-bar {
+    flex-direction: column !important;
+    border-radius: 16px !important;
+    padding: 14px 16px !important;
+    gap: 10px !important;
+  }
+
+  #safety .search-bar > i {
+    display: none;
+  }
+
+  #safety .search-bar input {
+    width: 100% !important;
+    font-size: 0.95rem !important;
+    border: 1.5px solid #fecaca !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+    background: #fff9f9 !important;
+  }
+
+  #safety .search-bar .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* ---- Country info improvements ---- */
+  #country-info .country-grid {
+    grid-template-columns: repeat(2,1fr) !important;
+    gap: 10px !important;
+    padding: 12px !important;
+  }
+
+  #country-info .visa-checker .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  #country-info .visa-checker .form-group:last-child {
+    align-items: stretch !important;
+  }
+
+  #country-info .visa-checker .btn {
+    width: 100% !important;
+  }
+
+  /* ---- Currency improvements ---- */
+  #currency .currency-converter {
+    padding: 20px !important;
+  }
+
+  .popular-currencies {
+    margin-top: 16px;
+  }
+
+  .exchange-info {
+    text-align: center;
+    padding: 12px 0 0;
+  }
+
+  /* ---- Packing improvements ---- */
+  #packing .packing-layout {
+    padding: 16px !important;
+    gap: 16px !important;
+  }
+
+  #packing .packing-config {
+    padding: 18px !important;
+  }
+
+  #packing .packing-list-card {
+    padding: 18px !important;
+  }
+
+  #packing .packing-list-header {
+    margin-bottom: 14px;
+  }
+
+  .category-header {
+    padding: 12px 14px !important;
+  }
+
+  /* ---- Documents improvements ---- */
+  #documents .documents-layout {
+    padding: 16px !important;
+    gap: 16px !important;
+  }
+
+  #documents .card {
+    padding: 18px !important;
+  }
+
+  /* ---- Toast — smaller on mobile ---- */
+  .toast-container {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 12px 16px;
+  }
+
+  /* =======================================
+     MAPS PAGE — comprehensive mobile fix
+     ======================================= */
+
+  /* Remove outer padding so map fills width */
+  #maps.section {
+    padding: 16px 0 24px !important;
+  }
+
+  #maps .container {
+    padding: 0 12px !important;
+  }
+
+  /* Stack everything vertically with tight gaps */
+  #maps .map-layout {
+    gap: 14px !important;
+  }
+
+  /* Controls card — single column, compact */
+  #maps .map-controls {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Search row: input takes all space, button shrinks */
+  .map-search {
+    flex-wrap: nowrap !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+  }
+
+  .map-search i {
+    margin-left: 12px !important;
+    font-size: 0.9rem;
+  }
+
+  .map-search input {
+    font-size: 0.9rem !important;
+    padding: 11px 10px !important;
+    min-width: 0;
+  }
+
+  .map-search .btn {
+    border-radius: 0 10px 10px 0 !important;
+    margin: 0 !important;
+    padding: 11px 14px !important;
+    font-size: 0.82rem !important;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Action buttons — side by side, full width */
+  .map-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .map-actions .btn {
+    justify-content: center !important;
+    font-size: 0.82rem !important;
+    padding: 10px 8px !important;
+  }
+
+  /* Map itself — proper responsive height */
+  .map-container {
+    border-radius: 14px !important;
+    border-width: 1.5px !important;
+  }
+
+  .map-view {
+    height: 52vw !important;
+    min-height: 260px !important;
+    max-height: 420px !important;
+  }
+
+  /* Saved places — horizontal scroll strip */
+  .saved-places {
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .saved-places h4 {
+    font-size: 0.92rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .saved-places-list {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    gap: 10px !important;
+    padding-bottom: 6px !important;
+    grid-template-columns: unset !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .saved-places-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .saved-place-item {
+    flex-shrink: 0 !important;
+    min-width: 180px !important;
+    font-size: 0.82rem !important;
+    padding: 10px 12px !important;
+  }
+
+  .saved-places-list p.text-muted {
+    min-width: 200px;
+    font-size: 0.83rem;
+  }
+
+  /* Search results dropdown */
+  #mapSearchResults {
+    max-height: 200px !important;
+    font-size: 0.85rem;
+  }
+}
+
+/* ============================================================
+   MOBILE OVERHAUL — very small phones ≤ 480px additions
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* Tighter section header */
+  .section-header {
+    margin-bottom: 20px !important;
+  }
+
+  /* Map height shorter on very small screens */
+  .map-view {
+    height: 55vw !important;
+    min-height: 220px !important;
+  }
+
+  /* Country grid 1 column on tiny phones */
+  #country-info .country-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Safety gauge smaller */
+  .gauge-circle {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  /* Packing layout no outer padding */
+  #packing .packing-layout {
+    padding: 10px !important;
+  }
+
+  /* Documents layout no outer padding */
+  #documents .documents-layout {
+    padding: 10px !important;
+  }
+
+  /* Map controls even more compact */
+  #maps .map-controls {
+    padding: 10px !important;
+  }
+
+  .map-actions .btn {
+    font-size: 0.78rem !important;
+    padding: 9px 6px !important;
+  }
+}
