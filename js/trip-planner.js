@@ -729,7 +729,7 @@
         { name: 'Google Flights', icon: 'fab fa-google', url: `https://www.google.com/travel/flights?q=flights+from+${originEnc}+to+${destEnc}+on+${date}`, color: '#4285f4' },
         { name: 'Skyscanner', icon: 'fas fa-search-dollar', url: `https://www.skyscanner.com/transport/flights/${originEnc}/${destEnc}/${date.replace(/-/g, '')}`, color: '#0770e3' },
         { name: 'Kayak', icon: 'fas fa-ship', url: `https://www.kayak.com/flights/${originEnc}-${destEnc}/${date}`, color: '#ff690f' },
-        { name: 'Expedia', icon: 'fas fa-globe', url: `https://www.expedia.com/Flights-search/${originEnc}-${destEnc}/${date}`, color: '#00355f' },
+        { name: 'Expedia', icon: 'fas fa-globe', url: `https://www.expedia.com/`, color: '#00355f' },
         { name: 'Momondo', icon: 'fas fa-search', url: `https://www.momondo.com/flights/${originEnc}-${destEnc}/${date}`, color: '#0896ff' },
         { name: 'Trip.com', icon: 'fas fa-plane', url: `https://www.trip.com/flights/${originEnc}-${destEnc}`, color: '#287dfa' },
       ];

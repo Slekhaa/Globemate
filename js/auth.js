@@ -135,8 +135,10 @@ const Auth = (() => {
     const navLogoLink = document.querySelector('.nav-logo');
     if (navLogoText) {
       navLogoText.innerHTML = userName;
-      navLogoText.style.fontWeight = '600';
-      navLogoText.style.color = '#ffffff';
+      navLogoText.style.fontWeight = '400';
+      navLogoText.style.color = '#111827';
+      navLogoText.style.fontFamily = '';
+      navLogoText.style.fontSize = '';
     }
     if (navLogoLink) {
       navLogoLink.dataset.authLocked = 'true';
@@ -177,6 +179,8 @@ const Auth = (() => {
       navLogoText.innerHTML = '<span class="letter-g">G</span><span class="letter-l">l</span><span class="letter-o">o</span><span class="letter-b">b</span><span class="letter-e1">e</span><span class="letter-m">M</span><span class="letter-a">a</span><span class="letter-t">t</span><span class="letter-e2">e</span>';
       navLogoText.style.fontWeight = '';
       navLogoText.style.color = '';
+      navLogoText.style.fontFamily = '';
+      navLogoText.style.fontSize = '';
     }
     if (navLogoLink) {
       delete navLogoLink.dataset.authLocked;

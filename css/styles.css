@@ -347,8 +347,8 @@ body.hero-page::after {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: transparent;
-  border-bottom: none;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
   transition: var(--transition);
 }
 
@@ -359,20 +359,22 @@ body.hero-page::after {
 }
 
 .navbar.scrolled {
-  background: transparent;
-  box-shadow: none;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   backdrop-filter: none;
-  border-bottom: none;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 /* Keep navbar transparent on hero-style pages */
 body.hero-page .navbar {
   background: transparent !important;
+  border-bottom: none !important;
 }
 
 body.hero-page .navbar.scrolled {
-  background: transparent !important;
-  box-shadow: none !important;
+  background: rgba(255,255,255,0.95) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .nav-container {
@@ -389,45 +391,46 @@ body.hero-page .navbar.scrolled {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 3rem;
+  font-size: 2.4rem;
   font-weight: 400;
   font-family: 'Dancing Script', 'Great Vibes', 'Pacifico', cursive;
   letter-spacing: 1px;
-  color: #f8fafc;
+  color: #111827;
   text-decoration: none;
-  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.6);
+  text-shadow: none;
   transition: var(--transition);
 }
 
-/* Larger black text on hero pages */
+/* Larger white text on hero pages */
 body.hero-page .nav-logo {
-  font-size: 3rem;
-  color: #111827;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 1px 8px rgba(255, 255, 255, 0.5);
+  font-size: 2.8rem;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .nav-logo i {
-  font-size: 3.2rem;
-  color: #666666;
-  filter: grayscale(100%);
+  font-size: 2.4rem;
+  color: #374151;
+  filter: none;
 }
 
 body.hero-page .nav-logo i {
-  font-size: 3.2rem;
-  color: #333333;
-  filter: grayscale(100%) drop-shadow(0 1px 3px rgba(255, 255, 255, 0.8));
+  font-size: 2.8rem;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
 }
 
 .nav-logo .logo-text {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-logo .logo-text span {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  text-shadow: none;
 }
 
 body.hero-page .nav-logo .logo-text span {
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5), 0 1px 6px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Letter colors for GlobeMate - Globe in blue, Mate in red */
@@ -452,81 +455,65 @@ body.hero-page .nav-logo .logo-text span {
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
   text-decoration: none;
   border-radius: var(--radius-sm);
   transition: var(--transition);
-  text-shadow: 0 2px 6px rgba(15, 23, 42, 0.6);
+  text-shadow: none;
 }
 
 body.hero-page .nav-links a {
-  color: #111827;
-  font-weight: 800;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 1px 8px rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-body.page-maps .nav-logo,
-body.page-maps .nav-links a,
-body.page-maps .nav-toggle {
-  color: #111827;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.6);
+body.hero-page .nav-links a i {
+  color: rgba(255,255,255,0.8);
 }
 
-body.page-documents .nav-logo,
-body.page-documents .nav-links a,
-body.page-documents .nav-toggle {
-  color: #f8fafc;
-  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.7);
-}
-
-body.page-packing .nav-logo,
-body.page-packing .nav-links a,
-body.page-packing .nav-toggle {
-  color: #0f172a;
-  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.7);
-}
-
-body.page-currency .nav-logo,
-body.page-currency .nav-links a,
-body.page-currency .nav-toggle {
-  color: #f8fafc;
-  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.7);
+body.hero-page .nav-links a:hover i,
+body.hero-page .nav-links a.active i {
+  color: #ffffff;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #ffffff;
-  background: rgba(59, 130, 246, 0.25);
-  text-shadow: 0 2px 8px rgba(15, 23, 42, 0.7);
+  color: #111827;
+  background: #f3f4f6;
+  text-shadow: none;
 }
 
 body.hero-page .nav-links a:hover,
 body.hero-page .nav-links a.active {
-  color: #0f172a;
-  background: rgba(255, 255, 255, 0.5);
-  text-shadow: 0 2px 5px rgba(255, 255, 255, 1), 0 1px 10px rgba(255, 255, 255, 0.6);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.nav-links a i { font-size: 0.8rem; }
+.nav-links a i { font-size: 0.8rem; color: #6b7280; }
+
+.nav-links a:hover i,
+.nav-links a.active i { color: #111827; }
 
 .nav-toggle {
   display: none;
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: #1f2937;
+  color: #374151;
   cursor: pointer;
   padding: 8px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+  text-shadow: none;
   transition: var(--transition);
 }
 
 body.hero-page .nav-toggle {
-  font-size: 1.6rem;
-  color: #111827;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.9), 0 1px 8px rgba(255, 255, 255, 0.5);
+  font-size: 1.4rem;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* ========================================
@@ -819,11 +806,11 @@ body.hero-page .nav-toggle {
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: #f3f4f6;
+  color: #374151;
+  border-color: #d1d5db;
+  backdrop-filter: none;
+  text-shadow: none;
 }
 
 /* Override for auth page Google button */
@@ -836,10 +823,10 @@ body.hero-page .nav-toggle {
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: #e5e7eb;
+  border-color: #9ca3af;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* Override hover for auth page Google button */
@@ -849,6 +836,21 @@ body.hero-page .nav-toggle {
   border-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* On hero pages, keep the original transparent look */
+body.hero-page .btn-outline {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.hero-page .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
@@ -918,41 +920,17 @@ body.hero-page .nav-toggle {
 #maps.tab-section.active-tab,
 #currency.tab-section.active-tab {
   background-color: #ffffff;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: none;
   overflow-y: auto;
   margin-top: 0;
   min-height: 100vh;
-}
-
-#packing.tab-section.active-tab {
-  background-image: url('../img1.png');
-}
-
-#documents.tab-section.active-tab {
-  background-image: url('../img6.png');
-}
-
-#maps.tab-section.active-tab {
-  background-image: url('../img1.png');
 }
 
 #packing,
 #documents,
 #maps {
   position: relative;
-  color: #0f172a;
-}
-
-#packing::before,
-#documents::before,
-#maps::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.55), rgba(148, 163, 184, 0.2));
-  z-index: 0;
+  color: #111827;
 }
 
 #packing .container,
@@ -965,43 +943,43 @@ body.hero-page .nav-toggle {
 #packing .section-title,
 #documents .section-title,
 #maps .section-title {
-  color: #f8fafc;
-  text-shadow: 0 6px 20px rgba(15, 23, 42, 0.4);
+  color: #111827;
+  text-shadow: none;
 }
 
 #packing .section-desc,
 #documents .section-desc,
 #maps .section-desc {
-  color: rgba(248, 250, 252, 0.9);
-  text-shadow: 0 4px 14px rgba(15, 23, 42, 0.35);
+  color: #6b7280;
+  text-shadow: none;
 }
 
 #packing .section-badge,
 #documents .section-badge,
 #maps .section-badge {
-  background: rgba(15, 23, 42, 0.6);
-  color: #f8fafc;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(8px);
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  backdrop-filter: none;
 }
 
 #packing .card,
 #documents .card,
 #maps .card {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.18);
-  backdrop-filter: blur(12px);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.05);
+  backdrop-filter: none;
 }
 
 #packing .packing-layout,
 #documents .documents-layout,
 #maps .map-layout {
-  background: rgba(15, 23, 42, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: var(--radius-lg);
   padding: 28px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: none;
 }
 
 .hero.tab-section.active-tab {
@@ -1010,13 +988,12 @@ body.hero-page .nav-toggle {
   overflow: hidden;
 }
 
-/* Hero-style backgrounds for Trip Planner, Country Info, and Safety pages */
-/* Backgrounds now applied to body.hero-page, these sections just need positioning */
+/* White-page backgrounds for Trip Planner, Country Info, and Safety pages */
 #trip-planner,
 #country-info,
 #safety {
   position: relative;
-  background: transparent;
+  background: #ffffff;
   overflow: visible;
 }
 
@@ -1031,79 +1008,83 @@ body.hero-page .nav-toggle {
 #country-info .section-title,
 #safety .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
-  color: #ffffff;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0.9));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #111827;
+  text-shadow: none;
+  -webkit-text-fill-color: #111827;
+  background: none;
 }
 
 #trip-planner .section-desc,
 #country-info .section-desc,
 #safety .section-desc {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 1.1rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #6b7280;
+  font-size: 1rem;
+  text-shadow: none;
 }
 
 #trip-planner .section-badge,
 #country-info .section-badge,
 #safety .section-badge {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #f3f4f6;
+  color: #374151;
+  backdrop-filter: none;
+  border: 1px solid #e5e7eb;
+  box-shadow: none;
 }
 
-/* Cards on hero-style backgrounds */
+/* Cards on white backgrounds */
 #country-info .card,
 #safety .card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: #ffffff;
+  backdrop-filter: none;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
-/* Form elements on hero-style backgrounds */
+/* Form elements */
 #country-info input,
 #country-info select,
 #safety input,
 #safety select,
 #safety textarea {
-  background: rgba(255, 255, 255, 0.95);
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #111827;
 }
 
 #country-info .country-header-card {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
 }
 
 #country-info .info-card,
 #safety .emergency-card {
-  background: #000 !important;
+  background: #111827 !important;
   color: #fff !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: none;
 }
 
 #trip-planner .visa-checker,
 #country-info .visa-checker {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: #ffffff;
+  backdrop-filter: none;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 
-/* Search bar on hero-style backgrounds */
+/* Search bar */
 #country-info .search-bar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: #ffffff;
+  backdrop-filter: none;
+  border: 1px solid #d1d5db;
 }
 
 #country-info .suggestions-dropdown {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(15px);
+  background: #ffffff;
+  backdrop-filter: none;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* ============ DYNAMIC PAGE LOADER STYLES ============ */
@@ -1140,24 +1121,10 @@ body.hero-page .nav-toggle {
 #content-container #maps,
 #content-container #currency {
   background-color: #ffffff;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-image: none;
   overflow-y: auto;
   margin-top: 0;
   min-height: 100vh;
-}
-
-#content-container #packing {
-  background-image: url('../img1.png');
-}
-
-#content-container #documents {
-  background-image: url('../img6.png');
-}
-
-#content-container #maps {
-  background-image: url('../img1.png');
 }
 
 .section-alt {
@@ -2809,7 +2776,7 @@ body.hero-page .nav-toggle {
    ======================================== */
 #currency {
   position: relative;
-  background: var(--dark);
+  background: #ffffff;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -2822,11 +2789,7 @@ body.hero-page .nav-toggle {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('../img3.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(0.4) contrast(1.1);
+  background-image: none;
   z-index: -1;
 }
 
@@ -2842,20 +2805,20 @@ body.hero-page .nav-toggle {
 }
 
 #currency .section-badge {
-  background: rgba(59, 130, 246, 0.2);
-  color: var(--white);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f3f4f6;
+  color: #374151;
+  backdrop-filter: none;
+  border: 1px solid #e5e7eb;
 }
 
 #currency .section-title {
-  color: var(--white);
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  color: #111827;
+  text-shadow: none;
 }
 
 #currency .section-desc {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  color: #6b7280;
+  text-shadow: none;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -2866,10 +2829,10 @@ body.hero-page .nav-toggle {
 .currency-converter {
   max-width: 700px;
   margin: 0 auto;
-  box-shadow: var(--shadow-xl);
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  backdrop-filter: none;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
 }
 
 .converter-layout {
@@ -3530,11 +3493,11 @@ body.hero-page .nav-toggle {
     top: 70px;
     left: 0;
     right: 0;
-    background: rgba(15, 23, 42, 0.95);
+    background: #ffffff;
     flex-direction: column;
     padding: 20px;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     z-index: 1000;
     animation: slideDown 0.3s ease-out;
   }
@@ -4343,7 +4306,7 @@ body.hero-page .nav-toggle {
   justify-content: center;
   padding: 1rem;
   position: relative;
-  background-image: url('../img5.jpg');
+  background-image: url('../img2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -5106,8 +5069,8 @@ select:focus-visible, textarea:focus-visible {
    ============================================ */
 .plan-trip-cta {
   margin-top: 2rem;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  border: 1px solid rgba(99, 102, 241, 0.3);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 1rem;
   overflow: hidden;
   position: relative;
@@ -5120,7 +5083,7 @@ select:focus-visible, textarea:focus-visible {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at 30% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+  background: none;
   pointer-events: none;
 }
 
@@ -5137,14 +5100,14 @@ select:focus-visible, textarea:focus-visible {
   flex-shrink: 0;
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #374151, #111827);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   color: white;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .plan-trip-text {
@@ -5152,18 +5115,18 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .plan-trip-text h3 {
-  color: #e2e8f0;
+  color: #111827;
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
 }
 
 .plan-trip-text h3 span {
-  color: #818cf8;
+  color: #374151;
   font-weight: 700;
 }
 
 .plan-trip-text p {
-  color: #94a3b8;
+  color: #6b7280;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -5177,8 +5140,8 @@ select:focus-visible, textarea:focus-visible {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(99, 102, 241, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.6); }
+  0%, 100% { box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); }
 }
 
 @media (max-width: 768px) {
@@ -5211,7 +5174,7 @@ select:focus-visible, textarea:focus-visible {
   transform: translateX(-50%);
   width: 360px;
   height: 180px;
-  background: radial-gradient(ellipse, rgba(250, 204, 21, 0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
   pointer-events: none;
   filter: blur(20px);
 }
@@ -5221,15 +5184,15 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   gap: 8px;
   padding: 7px 18px;
-  background: rgba(250, 204, 21, 0.12);
-  color: #facc15;
+  background: #f3f4f6;
+  color: #374151;
   font-size: 0.82rem;
   font-weight: 700;
   border-radius: 24px;
-  border: 1px solid rgba(250, 204, 21, 0.25);
+  border: 1px solid #e5e7eb;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  backdrop-filter: blur(8px);
+  backdrop-filter: none;
   margin-bottom: 14px;
 }
 
@@ -5237,21 +5200,21 @@ select:focus-visible, textarea:focus-visible {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #ffffff;
+  color: #111827;
   margin-bottom: 10px;
   letter-spacing: -0.02em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  text-shadow: none;
 }
 
 .tp-gradient-text {
-  background: linear-gradient(135deg, #facc15 0%, #f59e0b 40%, #fb923c 100%);
+  background: linear-gradient(135deg, #374151 0%, #111827 40%, #1f2937 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .tp-subtitle {
-  color: rgba(255, 255, 255, 0.75);
+  color: #6b7280;
   font-size: 1.05rem;
   max-width: 560px;
   margin: 0 auto;
@@ -5264,14 +5227,14 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%);
-  border: 1px solid rgba(250, 204, 21, 0.15);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 1.25rem 1.75rem;
   margin-bottom: 1.75rem;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(20px);
+  backdrop-filter: none;
 }
 
 .tp-dest-shine {
@@ -5280,7 +5243,7 @@ select:focus-visible, textarea:focus-visible {
   right: -50%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(105deg, transparent 40%, rgba(250, 204, 21, 0.04) 50%, transparent 60%);
+  background: linear-gradient(105deg, transparent 40%, rgba(0, 0, 0, 0.02) 50%, transparent 60%);
   pointer-events: none;
   animation: tp-shine 4s ease-in-out infinite;
 }
@@ -5307,8 +5270,8 @@ select:focus-visible, textarea:focus-visible {
   height: 44px;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
-  border: 2px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border: 2px solid #e5e7eb;
 }
 
 .tp-dest-pin {
@@ -5317,14 +5280,14 @@ select:focus-visible, textarea:focus-visible {
   right: -5px;
   width: 22px;
   height: 22px;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
+  background: linear-gradient(135deg, #374151, #111827);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.6rem;
-  color: #0f172a;
-  box-shadow: 0 2px 8px rgba(250, 204, 21, 0.4);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .tp-dest-eyebrow {
@@ -5335,11 +5298,11 @@ select:focus-visible, textarea:focus-visible {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color: #facc15;
+  color: #6b7280;
 }
 
 .tp-dest-info h3 {
-  color: #f1f5f9;
+  color: #111827;
   font-size: 1.3rem;
   font-weight: 700;
   margin: 2px 0 0;
@@ -5347,7 +5310,7 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-dest-info p {
-  color: #94a3b8;
+  color: #6b7280;
   font-size: 0.82rem;
   margin: 2px 0 0;
 }
@@ -5357,10 +5320,10 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
   border-radius: 10px;
-  color: #94a3b8;
+  color: #6b7280;
   font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
@@ -5369,9 +5332,9 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-change-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #f1f5f9;
-  border-color: rgba(250, 204, 21, 0.3);
+  background: #e5e7eb;
+  color: #111827;
+  border-color: #9ca3af;
 }
 
 /* --- Step Progress Bar --- */
@@ -5402,24 +5365,24 @@ select:focus-visible, textarea:focus-visible {
   justify-content: center;
   font-weight: 800;
   font-size: 0.85rem;
-  background: rgba(30, 41, 59, 0.8);
-  border: 2px solid rgba(100, 116, 139, 0.3);
-  color: #64748b;
+  background: #f3f4f6;
+  border: 2px solid #d1d5db;
+  color: #9ca3af;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tp-step.active .tp-step-num {
-  background: linear-gradient(135deg, #facc15, #f59e0b);
+  background: #111827;
   border-color: transparent;
-  color: #0f172a;
-  box-shadow: 0 0 20px rgba(250, 204, 21, 0.35);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .tp-step.done .tp-step-num {
   background: linear-gradient(135deg, #22c55e, #16a34a);
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.25);
 }
 
 .tp-step-label {
@@ -5427,17 +5390,17 @@ select:focus-visible, textarea:focus-visible {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  color: #64748b;
+  color: #9ca3af;
   transition: color 0.3s;
 }
 
-.tp-step.active .tp-step-label { color: #facc15; }
+.tp-step.active .tp-step-label { color: #111827; }
 .tp-step.done .tp-step-label { color: #22c55e; }
 
 .tp-step-line {
   flex: 1;
   height: 2px;
-  background: rgba(100, 116, 139, 0.2);
+  background: #e5e7eb;
   max-width: 80px;
   border-radius: 2px;
   overflow: hidden;
@@ -5447,20 +5410,20 @@ select:focus-visible, textarea:focus-visible {
 .tp-step-line-fill {
   height: 100%;
   width: 0;
-  background: linear-gradient(90deg, #facc15, #22c55e);
+  background: linear-gradient(90deg, #111827, #22c55e);
   border-radius: 2px;
   transition: width 0.6s ease;
 }
 
 /* --- Form Card --- */
 .tp-form-card {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 20px;
   padding: 2rem;
   margin-bottom: 1.5rem;
-  backdrop-filter: blur(24px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .tp-form-header {
@@ -5469,32 +5432,32 @@ select:focus-visible, textarea:focus-visible {
   gap: 14px;
   margin-bottom: 1.75rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .tp-form-icon {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
+  background: linear-gradient(135deg, #374151, #111827);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  color: #0f172a;
+  color: #ffffff;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tp-form-header h3 {
-  color: #f1f5f9;
+  color: #111827;
   font-size: 1.15rem;
   font-weight: 700;
   margin: 0;
 }
 
 .tp-form-header p {
-  color: #64748b;
+  color: #6b7280;
   font-size: 0.82rem;
   margin: 2px 0 0;
 }
@@ -5526,24 +5489,24 @@ select:focus-visible, textarea:focus-visible {
   gap: 8px;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #cbd5e1;
+  color: #374151;
   letter-spacing: 0.3px;
 }
 
 .tp-field-icon {
   width: 22px;
   height: 22px;
-  background: rgba(250, 204, 21, 0.1);
+  background: #f3f4f6;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.65rem;
-  color: #facc15;
+  color: #6b7280;
 }
 
 .tp-optional {
-  color: #475569;
+  color: #9ca3af;
   font-weight: 400;
   font-size: 0.75rem;
 }
@@ -5552,22 +5515,22 @@ select:focus-visible, textarea:focus-visible {
 .tp-form select {
   width: 100%;
   padding: 12px 16px;
-  background: rgba(30, 41, 59, 0.7);
-  border: 1.5px solid rgba(100, 116, 139, 0.2);
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
   border-radius: 12px;
-  color: #f1f5f9;
+  color: #111827;
   font-size: 0.92rem;
   font-family: var(--font);
   transition: all 0.25s ease;
   outline: none;
 }
 
-.tp-field input::placeholder { color: #475569; }
+.tp-field input::placeholder { color: #9ca3af; }
 
 .tp-field input:focus {
-  border-color: #facc15;
-  background: rgba(30, 41, 59, 0.9);
-  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1), 0 4px 12px rgba(0,0,0,0.15);
+  border-color: #111827;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .tp-input-wrap,
@@ -5587,9 +5550,9 @@ select:focus-visible, textarea:focus-visible {
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  background: rgba(250, 204, 21, 0.08);
-  border: 1.5px solid rgba(250, 204, 21, 0.2);
-  color: #facc15;
+  background: #f3f4f6;
+  border: 1.5px solid #d1d5db;
+  color: #6b7280;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5599,9 +5562,9 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-detect-btn:hover {
-  background: rgba(250, 204, 21, 0.15);
-  border-color: rgba(250, 204, 21, 0.4);
-  box-shadow: 0 0 15px rgba(250, 204, 21, 0.15);
+  background: #e5e7eb;
+  border-color: #9ca3af;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
   transform: scale(1.05);
 }
 
@@ -5618,11 +5581,11 @@ select:focus-visible, textarea:focus-visible {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
 }
 
 .tp-divider span {
-  color: #64748b;
+  color: #9ca3af;
   font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -5654,8 +5617,8 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   gap: 8px;
   padding: 18px 10px 14px;
-  background: rgba(30, 41, 59, 0.5);
-  border: 2px solid rgba(100, 116, 139, 0.12);
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
   border-radius: 14px;
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -5666,13 +5629,13 @@ select:focus-visible, textarea:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(250, 204, 21, 0.06), transparent);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .tp-mode:hover .tp-mode-inner {
-  border-color: rgba(250, 204, 21, 0.25);
+  border-color: #9ca3af;
   transform: translateY(-2px);
 }
 
@@ -5682,19 +5645,19 @@ select:focus-visible, textarea:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(100, 116, 139, 0.1);
+  background: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  color: #64748b;
+  color: #6b7280;
   transition: all 0.3s;
 }
 
 .tp-mode-name {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #94a3b8;
+  color: #6b7280;
   transition: color 0.3s;
 }
 
@@ -5705,12 +5668,12 @@ select:focus-visible, textarea:focus-visible {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
+  background: linear-gradient(135deg, #374151, #111827);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.55rem;
-  color: #0f172a;
+  color: #ffffff;
   opacity: 0;
   transform: scale(0.5);
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -5718,18 +5681,18 @@ select:focus-visible, textarea:focus-visible {
 
 /* Selected state */
 .tp-mode.selected .tp-mode-inner {
-  border-color: #facc15;
-  background: rgba(250, 204, 21, 0.06);
-  box-shadow: 0 0 24px rgba(250, 204, 21, 0.1), inset 0 1px 0 rgba(250, 204, 21, 0.1);
+  border-color: #111827;
+  background: #f9fafb;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
 .tp-mode.selected .tp-mode-icon-wrap {
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #0f172a;
-  box-shadow: 0 4px 14px rgba(250, 204, 21, 0.3);
+  background: linear-gradient(135deg, #374151, #111827);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
-.tp-mode.selected .tp-mode-name { color: #facc15; }
+.tp-mode.selected .tp-mode-name { color: #111827; }
 
 .tp-mode.selected .tp-mode-check {
   opacity: 1;
@@ -5742,8 +5705,8 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   padding: 14px 20px;
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid rgba(100, 116, 139, 0.1);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 14px;
   margin-bottom: 1.75rem;
 }
@@ -5752,13 +5715,13 @@ select:focus-visible, textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #cbd5e1;
+  color: #374151;
   font-weight: 600;
   font-size: 0.92rem;
 }
 
 .tp-passengers-label i {
-  color: #facc15;
+  color: #6b7280;
 }
 
 .tp-passengers-ctrl {
@@ -5771,9 +5734,9 @@ select:focus-visible, textarea:focus-visible {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: rgba(250, 204, 21, 0.08);
-  border: 1.5px solid rgba(250, 204, 21, 0.2);
-  color: #facc15;
+  background: #f3f4f6;
+  border: 1.5px solid #d1d5db;
+  color: #374151;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5783,17 +5746,17 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-pax-btn:hover {
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #0f172a;
+  background: #111827;
+  color: #ffffff;
   border-color: transparent;
   transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .tp-pax-count {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #111827;
   min-width: 28px;
   text-align: center;
 }
@@ -5806,12 +5769,12 @@ select:focus-visible, textarea:focus-visible {
   justify-content: center;
   gap: 10px;
   padding: 16px;
-  background: linear-gradient(135deg, #facc15 0%, #f59e0b 50%, #ea580c 100%);
+  background: linear-gradient(135deg, #1f2937 0%, #111827 50%, #0f172a 100%);
   border: none;
   border-radius: 14px;
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -5822,14 +5785,14 @@ select:focus-visible, textarea:focus-visible {
 .tp-search-btn-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #fde047, #facc15, #fb923c);
+  background: linear-gradient(135deg, #374151, #1f2937, #111827);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .tp-search-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(250, 204, 21, 0.35), 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .tp-search-btn:hover .tp-search-btn-bg { opacity: 1; }
@@ -5850,13 +5813,13 @@ select:focus-visible, textarea:focus-visible {
 .tp-booking-card,
 .tp-summary-card,
 .tp-saved-card {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 20px;
   padding: 1.75rem 2rem;
   margin-bottom: 1.5rem;
-  backdrop-filter: blur(24px);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .tp-card-head {
@@ -5867,14 +5830,14 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-card-head h3 {
-  color: #f1f5f9;
+  color: #111827;
   font-size: 1.1rem;
   font-weight: 700;
   margin: 0;
 }
 
 .tp-card-head p {
-  color: #64748b;
+  color: #6b7280;
   font-size: 0.82rem;
   margin: 2px 0 0;
 }
@@ -5891,9 +5854,9 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-card-head-icon.amber {
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #0f172a;
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.25);
+  background: linear-gradient(135deg, #374151, #111827);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .tp-card-head-icon.blue {
@@ -5915,9 +5878,9 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-card-head-icon.gold {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
-  color: #0f172a;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, #374151, #1f2937);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* --- Airport Grid --- */
@@ -5931,24 +5894,24 @@ select:focus-visible, textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(250, 204, 21, 0.08);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 12px 16px;
   transition: all 0.2s;
 }
 
 .airport-item:hover {
-  border-color: rgba(250, 204, 21, 0.2);
-  background: rgba(30, 41, 59, 0.8);
+  border-color: #d1d5db;
+  background: #f3f4f6;
 }
 
 .airport-code {
   font-size: 1rem;
   font-weight: 800;
-  color: #facc15;
+  color: #111827;
   letter-spacing: 1px;
-  background: rgba(250, 204, 21, 0.08);
+  background: #f3f4f6;
   padding: 6px 10px;
   border-radius: 8px;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
@@ -5956,12 +5919,12 @@ select:focus-visible, textarea:focus-visible {
 
 .airport-info strong {
   display: block;
-  color: #e2e8f0;
+  color: #111827;
   font-size: 0.85rem;
 }
 
 .airport-info span {
-  color: #64748b;
+  color: #6b7280;
   font-size: 0.78rem;
 }
 
@@ -5979,21 +5942,21 @@ select:focus-visible, textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(100, 116, 139, 0.15);
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 6px 12px;
 }
 
 .tp-sort-wrap i {
-  color: #64748b;
+  color: #6b7280;
   font-size: 0.8rem;
 }
 
 .tp-sort-wrap select {
   background: transparent;
   border: none;
-  color: #cbd5e1;
+  color: #374151;
   font-size: 0.82rem;
   font-weight: 500;
   outline: none;
@@ -6002,8 +5965,8 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-sort-wrap select option {
-  background: #1e293b;
-  color: #e2e8f0;
+  background: #ffffff;
+  color: #111827;
 }
 
 /* --- Flight Cards --- */
@@ -6018,8 +5981,8 @@ select:focus-visible, textarea:focus-visible {
   grid-template-columns: 190px 1fr 170px;
   align-items: center;
   gap: 1.25rem;
-  background: rgba(30, 41, 59, 0.45);
-  border: 1px solid rgba(100, 116, 139, 0.08);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -6040,23 +6003,23 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .flight-card:hover {
-  border-color: rgba(250, 204, 21, 0.15);
-  background: rgba(30, 41, 59, 0.65);
+  border-color: #d1d5db;
+  background: #ffffff;
   transform: translateX(3px);
 }
 
 .flight-card:hover::before {
-  background: linear-gradient(180deg, #facc15, #f59e0b);
+  background: linear-gradient(180deg, #374151, #111827);
 }
 
 .flight-card.selected {
-  border-color: rgba(250, 204, 21, 0.3);
-  background: rgba(250, 204, 21, 0.04);
-  box-shadow: 0 0 30px rgba(250, 204, 21, 0.08);
+  border-color: #111827;
+  background: #ffffff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
 }
 
 .flight-card.selected::before {
-  background: linear-gradient(180deg, #facc15, #22c55e);
+  background: linear-gradient(180deg, #111827, #22c55e);
 }
 
 .flight-airline {
@@ -6083,7 +6046,7 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .airline-info strong {
-  color: #e2e8f0;
+  color: #111827;
   font-size: 0.88rem;
   font-weight: 600;
 }
@@ -6112,7 +6075,7 @@ select:focus-visible, textarea:focus-visible {
   display: block;
   font-size: 1.25rem;
   font-weight: 800;
-  color: #f1f5f9;
+  color: #111827;
   letter-spacing: -0.02em;
 }
 
@@ -6120,7 +6083,7 @@ select:focus-visible, textarea:focus-visible {
   display: block;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #facc15;
+  color: #374151;
   letter-spacing: 0.5px;
 }
 
@@ -6140,7 +6103,7 @@ select:focus-visible, textarea:focus-visible {
 .flight-duration {
   display: block;
   font-size: 0.78rem;
-  color: #94a3b8;
+  color: #6b7280;
   margin-bottom: 6px;
   font-weight: 500;
 }
@@ -6155,9 +6118,9 @@ select:focus-visible, textarea:focus-visible {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #facc15;
+  background: #374151;
   flex-shrink: 0;
-  box-shadow: 0 0 6px rgba(250, 204, 21, 0.4);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .duration-line .stop-dot {
@@ -6166,18 +6129,18 @@ select:focus-visible, textarea:focus-visible {
   border-radius: 50%;
   background: #f97316;
   flex-shrink: 0;
-  border: 1.5px solid rgba(15, 23, 42, 0.5);
+  border: 1.5px solid #ffffff;
 }
 
 .duration-line .line {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, rgba(250, 204, 21, 0.4), rgba(250, 204, 21, 0.15));
+  background: linear-gradient(90deg, #d1d5db, #e5e7eb);
   min-width: 16px;
 }
 
 .duration-line i {
-  color: #facc15;
+  color: #6b7280;
   font-size: 0.85rem;
   margin-left: 3px;
 }
@@ -6216,7 +6179,7 @@ select:focus-visible, textarea:focus-visible {
 
 .seats-left {
   font-size: 0.72rem;
-  color: #94a3b8;
+  color: #6b7280;
   font-weight: 500;
 }
 
@@ -6228,10 +6191,10 @@ select:focus-visible, textarea:focus-visible {
 .select-flight-btn {
   margin-top: 8px;
   padding: 7px 18px;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
+  background: linear-gradient(135deg, #374151, #111827);
   border: none;
   border-radius: 8px;
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.78rem;
   cursor: pointer;
@@ -6240,7 +6203,7 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .select-flight-btn:hover {
-  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
 }
 
@@ -6254,7 +6217,7 @@ select:focus-visible, textarea:focus-visible {
 
   .flight-airline {
     padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid #f3f4f6;
   }
 
   .flight-price-section {
@@ -6262,7 +6225,7 @@ select:focus-visible, textarea:focus-visible {
     align-items: center;
     justify-content: space-between;
     padding-top: 0.75rem;
-    border-top: 1px solid rgba(255,255,255,0.04);
+    border-top: 1px solid #f3f4f6;
     flex-wrap: wrap;
     gap: 8px;
   }
@@ -6283,9 +6246,9 @@ select:focus-visible, textarea:focus-visible {
 
 .tp-loader-plane i {
   font-size: 2.2rem;
-  color: #facc15;
+  color: #374151;
   animation: tp-fly 2.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.4));
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.1));
 }
 
 @keyframes tp-fly {
@@ -6299,7 +6262,7 @@ select:focus-visible, textarea:focus-visible {
   left: -30px;
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.3));
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.15));
   animation: tp-trail 2.5s ease-in-out infinite;
 }
 
@@ -6310,7 +6273,7 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-flight-loading p {
-  color: #94a3b8;
+  color: #6b7280;
   font-size: 0.95rem;
   margin-bottom: 1.25rem;
 }
@@ -6318,7 +6281,7 @@ select:focus-visible, textarea:focus-visible {
 .tp-loader-bar {
   width: 220px;
   height: 3px;
-  background: rgba(100, 116, 139, 0.15);
+  background: #e5e7eb;
   border-radius: 3px;
   margin: 0 auto;
   overflow: hidden;
@@ -6327,7 +6290,7 @@ select:focus-visible, textarea:focus-visible {
 .tp-loader-bar-fill {
   height: 100%;
   width: 40%;
-  background: linear-gradient(90deg, #facc15, #f59e0b);
+  background: linear-gradient(90deg, #374151, #111827);
   border-radius: 3px;
   animation: tp-bar-slide 1.5s ease-in-out infinite;
 }
@@ -6347,7 +6310,7 @@ select:focus-visible, textarea:focus-visible {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: rgba(100, 116, 139, 0.08);
+  background: #f3f4f6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6356,18 +6319,18 @@ select:focus-visible, textarea:focus-visible {
 
 .tp-empty-icon i {
   font-size: 1.5rem;
-  color: #475569;
+  color: #9ca3af;
 }
 
 .tp-empty h3 {
-  color: #94a3b8;
+  color: #374151;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 4px;
 }
 
 .tp-empty p {
-  color: #475569;
+  color: #6b7280;
   font-size: 0.85rem;
 }
 
@@ -6382,8 +6345,8 @@ select:focus-visible, textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(30, 41, 59, 0.5);
-  border: 1px solid rgba(100, 116, 139, 0.08);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 12px;
   padding: 12px 16px;
   text-decoration: none;
@@ -6391,10 +6354,10 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .booking-link-card:hover {
-  border-color: rgba(250, 204, 21, 0.2);
+  border-color: #d1d5db;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  background: rgba(30, 41, 59, 0.7);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  background: #ffffff;
 }
 
 .booking-link-icon {
@@ -6411,20 +6374,20 @@ select:focus-visible, textarea:focus-visible {
 
 .booking-link-name {
   flex: 1;
-  color: #e2e8f0;
+  color: #111827;
   font-weight: 600;
   font-size: 0.88rem;
 }
 
 .booking-link-arrow {
-  color: #475569;
+  color: #9ca3af;
   font-size: 0.72rem;
   transition: transform 0.2s;
 }
 
 .booking-link-card:hover .booking-link-arrow {
   transform: translateX(3px);
-  color: #facc15;
+  color: #374151;
 }
 
 /* --- Trip Summary --- */
@@ -6443,17 +6406,17 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
-  background: rgba(30, 41, 59, 0.5);
+  background: #f9fafb;
   border-radius: 12px;
-  border: 1px solid rgba(100, 116, 139, 0.06);
+  border: 1px solid #e5e7eb;
 }
 
 .summary-item > i {
   width: 34px;
   height: 34px;
   border-radius: 9px;
-  background: rgba(250, 204, 21, 0.08);
-  color: #facc15;
+  background: #f3f4f6;
+  color: #374151;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
@@ -6472,7 +6435,7 @@ select:focus-visible, textarea:focus-visible {
 
 .summary-value {
   display: block;
-  color: #e2e8f0;
+  color: #111827;
   font-weight: 600;
   font-size: 0.92rem;
 }
@@ -6482,7 +6445,7 @@ select:focus-visible, textarea:focus-visible {
   gap: 10px;
   margin-top: 1.5rem;
   padding-top: 1.25rem;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid #f3f4f6;
 }
 
 .tp-action-btn {
@@ -6500,24 +6463,24 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .tp-action-btn.primary {
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #0f172a;
+  background: linear-gradient(135deg, #374151, #111827);
+  color: #ffffff;
 }
 
 .tp-action-btn.primary:hover {
-  box-shadow: 0 4px 16px rgba(250, 204, 21, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
 .tp-action-btn.ghost {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: #94a3b8;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
 }
 
 .tp-action-btn.ghost:hover {
-  background: rgba(255,255,255,0.08);
-  color: #e2e8f0;
+  background: #e5e7eb;
+  color: #111827;
 }
 
 /* --- Saved Trips --- */
@@ -6531,16 +6494,16 @@ select:focus-visible, textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(30, 41, 59, 0.45);
-  border: 1px solid rgba(100, 116, 139, 0.06);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 14px;
   padding: 14px 18px;
   transition: all 0.25s;
 }
 
 .saved-trip-item:hover {
-  border-color: rgba(250, 204, 21, 0.15);
-  background: rgba(30, 41, 59, 0.65);
+  border-color: #d1d5db;
+  background: #ffffff;
 }
 
 .saved-trip-flag img {
@@ -6548,12 +6511,12 @@ select:focus-visible, textarea:focus-visible {
   height: 34px;
   object-fit: cover;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .saved-trip-flag i {
   font-size: 1.5rem;
-  color: #facc15;
+  color: #374151;
 }
 
 .saved-trip-info {
@@ -6561,19 +6524,19 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .saved-trip-info h4 {
-  color: #f1f5f9;
+  color: #111827;
   font-size: 0.95rem;
   margin-bottom: 3px;
 }
 
 .saved-trip-info p {
-  color: #64748b;
+  color: #6b7280;
   font-size: 0.78rem;
   margin: 2px 0;
 }
 
 .saved-trip-info p i {
-  color: #475569;
+  color: #9ca3af;
   width: 14px;
 }
 
@@ -6606,19 +6569,19 @@ select:focus-visible, textarea:focus-visible {
 
 .non-flight-message > i:first-child {
   font-size: 3rem;
-  color: #facc15;
+  color: #374151;
   margin-bottom: 1rem;
   display: block;
-  filter: drop-shadow(0 4px 12px rgba(250, 204, 21, 0.3));
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
 }
 
 .non-flight-message h3 {
-  color: #f1f5f9;
+  color: #111827;
   margin-bottom: 0.5rem;
 }
 
 .non-flight-message p {
-  color: #94a3b8;
+  color: #6b7280;
   margin-bottom: 1.5rem;
 }
 
@@ -6634,10 +6597,10 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
   gap: 6px;
   padding: 10px 18px;
-  background: rgba(250, 204, 21, 0.06);
-  border: 1px solid rgba(250, 204, 21, 0.15);
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  color: #facc15;
+  color: #374151;
   text-decoration: none;
   font-weight: 600;
   font-size: 0.88rem;
@@ -6645,32 +6608,32 @@ select:focus-visible, textarea:focus-visible {
 }
 
 .alt-travel-link:hover {
-  background: rgba(250, 204, 21, 0.12);
-  border-color: rgba(250, 204, 21, 0.3);
+  background: #e5e7eb;
+  border-color: #d1d5db;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 /* --- Override hero-page card styles for trip planner --- */
 #trip-planner .card,
 #trip-planner.tp-form-card {
-  background: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(24px);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  backdrop-filter: none;
 }
 
 #trip-planner input,
 #trip-planner select,
 #trip-planner textarea {
-  background: rgba(30, 41, 59, 0.7);
-  color: #f1f5f9;
-  border-color: rgba(100, 116, 139, 0.2);
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db;
 }
 
 #trip-planner input:focus,
 #trip-planner select:focus {
-  border-color: #facc15;
-  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1);
+  border-color: #111827;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
 
 #trip-planner .section-header { display: none; }
